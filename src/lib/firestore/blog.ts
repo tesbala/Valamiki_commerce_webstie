@@ -1,5 +1,5 @@
 import { collection, doc, getDoc, getDocs, query, orderBy, where } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { getDb } from "@/lib/firebase";
 
 export interface BlogPost {
   id: string;
@@ -22,6 +22,8 @@ function toDateLabel(ts: unknown): string {
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   try {
+    const db = getDb();
+    if (!db) return [];
     const q = query(
       collection(db, "blog"),
       where("isPublished", "==", true),
@@ -46,6 +48,8 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 
 export async function getBlogPost(id: string): Promise<BlogPost | null> {
   try {
+    const db = getDb();
+    if (!db) return null;
     const snap = await getDoc(doc(db, "blog", id));
     if (!snap.exists()) return null;
     const r = snap.data();
