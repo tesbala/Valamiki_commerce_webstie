@@ -54,6 +54,7 @@ export function Footer() {
               <li><Link href="/account" className="text-sm text-on-dark-muted transition-colors hover:text-secondary-300">My account</Link></li>
               <li><Link href="/wishlist" className="text-sm text-on-dark-muted transition-colors hover:text-secondary-300">Wishlist</Link></li>
               <li><Link href="/cart" className="text-sm text-on-dark-muted transition-colors hover:text-secondary-300">Cart</Link></li>
+              <li><Link href="/blog" className="text-sm text-on-dark-muted transition-colors hover:text-secondary-300">Blog</Link></li>
             </ul>
           </div>
 
